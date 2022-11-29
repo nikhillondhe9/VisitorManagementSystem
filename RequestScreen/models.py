@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-class Visitrequestdetails(models.Model):
+class VisitRequestDetails(models.Model):
     # Field name made lowercase.
     visitid = models.AutoField(db_column='VisitID', primary_key=True)
     # Field name made lowercase.
@@ -13,7 +13,12 @@ class Visitrequestdetails(models.Model):
     # Field name made lowercase.
     visitenddatetime = models.DateTimeField(db_column='VisitEndDateTime')
     # Field name made lowercase.
-    visitstatus = models.CharField(db_column='VisitStatus', max_length=8)
+    # values for visit status
+    VisitType = models.TextChoices(
+        'VisitType', 'pending approved rejected revision')
+
+    visitstatus = models.CharField(
+        db_column='VisitStatus', max_length=8, choices=VisitType.choices)
     # Field name made lowercase.
     additionalcomments = models.TextField(
         db_column='AdditionalComments', blank=True, null=True)
