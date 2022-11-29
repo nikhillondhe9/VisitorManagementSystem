@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from .forms import RegistrationForm
+from django.contrib.auth import login, logout, authenticate
 
 
 class SignupView(View):
@@ -12,7 +13,11 @@ class SignupView(View):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
+            login(request, user)
             print("user registered")
-            return render(request, "registration/login.html")
+            return redirect('/login')
+
         else:
-            return render(request, 'registration/sign_up.html', {"form": form})
+            form = RegistrationForm()
+
+        return render(request, 'registration/sign_up.html', {"form": form})
