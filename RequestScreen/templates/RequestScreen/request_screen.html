@@ -1,5 +1,10 @@
 {%extends 'base.html'%}
 {%block title%}Request Screen{%endblock title%}
 {%block content%}
-<h1> This is the Request Screen</h1>
+<h1> This is the Request Screen.</h1>
+<form method="post">
+  {%csrf_token%}
+  {{form.as_p}}
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 {%endblock content%}
