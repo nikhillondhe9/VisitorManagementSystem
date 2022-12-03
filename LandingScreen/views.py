@@ -1,12 +1,16 @@
 from django.shortcuts import render
-from django.views import View
+from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from RequestScreen.models import VisitRequestDetails
+# from .models import VisitRequestDetail
+
 
 # Create your views here.
 
 
-class LandingView(LoginRequiredMixin, View):
+class LandingListView(LoginRequiredMixin, ListView):
     login_url = "/login"
-
-    def get(self, request):
-        return render(request, "LandingScreen/landingscreen.html")
+    model = VisitRequestDetails
+    template_name = 'LandingScreen/VisitRequestDetails_list.html'
+    paginate_by = 2
+    context_object_name = "visit_requests"

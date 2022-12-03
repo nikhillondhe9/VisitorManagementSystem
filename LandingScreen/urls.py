@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import LandingView
+from .views import LandingListView
 
 urlpatterns = [
-    path('landing-view', LandingView.as_view(), name="landing-view"),
+    path('landing-screen', LandingListView.as_view(), name="landing-screen"),
 ]
