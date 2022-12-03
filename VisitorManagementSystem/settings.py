@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'UserManagement',
-    'LandingScreen'
+    'LandingScreen',
     'RequestScreen'
 ]
 
@@ -131,5 +131,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = '/request-screen'
+LOGIN_REDIRECT_URL = '/landing-view'
 LOGOUT_REDIRECT_URL = '/login'

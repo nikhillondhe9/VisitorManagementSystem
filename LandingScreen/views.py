@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class LandingView(LoginRequiredMixin, View):
-    login_url = "/admin/"
+    login_url = "/login"
 
     def get(self, request):
         return render(request, "LandingScreen/landingscreen.html")
