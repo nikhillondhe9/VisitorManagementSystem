@@ -1,10 +1,18 @@
 {%extends 'base.html'%}
 {%block title%}Request Screen{%endblock title%}
 {%block content%}
-<h1> This is the Request Screen.</h1>
-<form method="post">
+<section>
+  <h3> Visit Details </h3>
+  <form method="post">
   {%csrf_token%}
-  {{form.as_p}}
+  {%for form_field in form%}
+  <div>
+  {{form_field.label_tag}}
+  {{form_field}}
+  {{form_field.errors}}
+  </div>
+  {%endfor%}
   <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+  </form>
+</section>
 {%endblock content%}
