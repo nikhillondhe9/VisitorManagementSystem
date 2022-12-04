@@ -15,7 +15,7 @@ class SignupView(View):
             user = form.save()
             login(request, user)
             print("user registered")
-            return redirect('/login')
+            return redirect('/request-screen')
 
         else:
             form = RegistrationForm()

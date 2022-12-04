@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'UserManagement'
+    'UserManagement',
+    'LandingScreen',
+    'RequestScreen'
 ]
 
 MIDDLEWARE = [
@@ -129,5 +131,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = '/sign-up'
+LOGIN_REDIRECT_URL = '/landing-screen'
 LOGOUT_REDIRECT_URL = '/login'
