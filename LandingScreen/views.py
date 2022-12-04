@@ -12,5 +12,5 @@ class LandingListView(LoginRequiredMixin, ListView):
     login_url = "/login"
     model = VisitRequestDetails
     template_name = 'LandingScreen/VisitRequestDetails_list.html'
-    paginate_by = 2
+    paginate_by = 10
     context_object_name = "visit_requests"

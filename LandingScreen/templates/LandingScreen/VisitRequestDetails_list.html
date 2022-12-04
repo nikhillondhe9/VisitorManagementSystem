@@ -3,22 +3,34 @@
 {%block content%}
   <h3>Welcome! {{user.username}} </h3>
   <h4>Visit Requests</h4>
-  <table>
-    <tr>
-      <th>Location</th>
-      <th>Requested By</th>
-    </tr>
-    {% for visit in visit_requests %}
-    <tr>
-      {# Each "contact" is a Contact model object. #}
-      <td>
-        {{visit.location|upper}}
-      </td>
-      <td>
-        {{visit.certifiedbyname|title}}
-      </td>
-    </tr>
-    {% endfor %}
+  <table class="table table-bordered table-striped table-hover">
+    <thead class="thead-dark">
+      <tr style="text-align: center">
+        <th scope="col">Location</th>
+        <th scope="col">Requested By</th>
+        <th scope="col">Status</th>
+        <th scope="col">Visit Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for visit in visit_requests %}
+      <tr style="text-align: center">
+        {# Each "contact" is a Contact model object. #}
+        <td>
+          {{visit.location|upper}}
+        </td>
+        <td>
+          {{visit.certifiedbyname|title}}
+        </td>
+        <td>
+          {{visit.visitstatus|title}}
+        </td>
+        <td>
+          {{visit.visitstartdatetime|date}}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
   </table>
   <div class="pagination">
     <span class="step-links">

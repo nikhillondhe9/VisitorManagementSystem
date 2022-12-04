@@ -2,11 +2,14 @@
 {% load static %}
 {% block title %} Login {%endblock title%}
 {% block content%}
-<h3>Welcome to login Screen</h3>
+
 <form method="post">
   {%csrf_token%}
+  <div class="form-group">
   {{form.as_p}}
+  </div>
   <button type="submit" class="btn btn-success">Login</button>
   <p>Don't have an account? Create one <a href="/sign-up">Here</a>!</p>
 </form>
+
 {% endblock content%}
